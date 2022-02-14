@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"module": "es6",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"outFile": "app.bundle.js",
+		"baseUrl": "./node_modules"
+	}
+}

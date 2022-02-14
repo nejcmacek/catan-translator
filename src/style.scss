@@ -1,0 +1,357 @@
+$accent: #88403c;
+$shadow: 0 0 16px 4px rgba(0, 0, 0, 0.2);
+$shadow-big: 0 0 64px 4px rgba(0, 0, 0, 0.2);
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #eee;
+}
+
+body {
+  position: relative;
+  height: auto !important;
+  overflow: hidden;
+  background: #eee;
+}
+
+html,
+body,
+textarea,
+input,
+select,
+button {
+  font-family: Raleway, Robot, sans-serif;
+  color: rgba(0, 0, 0, .8);
+}
+
+header {
+  height: 64px;
+  background: $accent;
+  line-height: 64px;
+  color: white;
+  font-size: 24px;
+  font-weight: 200;
+  position: relative;
+  z-index: 50;
+  box-shadow: $shadow;
+  .md-button {
+    float: right;
+    position: relative;
+    top: 8px;
+    font-weight: 200;
+  }
+  span {
+    display: inline-block;
+  }
+  .link {
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+main {
+  padding-bottom: 48px;
+}
+
+.container {
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.search {
+  position: relative;
+  box-shadow: $shadow;
+  background: white;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding-top: 20px;
+  padding-bottom: 16px;
+  z-index: 10;
+  .form {
+    margin-top: 8px;
+  }
+}
+
+.results {
+  margin-top: 48px;
+  padding: 0 !important;
+  background: white;
+  box-shadow: $shadow;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.message {
+  padding: 48px 24px 24px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+ct-costs {
+  display: block;
+  text-align: center;
+  >table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  tr:nth-child(2n) {
+    background: transparentize($color: $accent, $amount: 0.9);
+  }
+  td:first-child {
+    border-right: 2px solid $accent;
+  }
+  td {
+    padding: 8px;
+  }
+  span {
+    display: inline-block;
+  }
+}
+
+ct-ico {
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+}
+
+ct-result-item {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  background: white;
+  display: block;
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: all .3s;
+  box-sizing: border-box;
+  &:last-child {
+    border-top: none;
+  }
+  .nowrap {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+  }
+  span {
+    transition: all .3s;
+  }
+  .header {
+    font-size: 24px;
+    font-weight: 200;
+    color: $accent;
+  }
+  .subheader {
+    font-size: 16px;
+    font-weight: 500;
+    color: $accent;
+    transition: all .3s;
+  }
+  .subheader-expanded {
+    color: $accent;
+    transition: all .3s;
+    max-height: 0;
+    opacity: 0;
+    font-size: 16px;
+  }
+  .description {
+    margin-top: 6px;
+    color: rgba(0, 0, 0, 0.6);
+    font-style: italic;
+    line-height: 20px;
+    max-height: 20px;
+    transition: all .3s, max-height .6s;
+  }
+  &:hover {
+    box-shadow: $shadow;
+    position: relative;
+    z-index: 5;
+  }
+  &.expanded {
+    box-shadow: $shadow;
+    position: relative;
+    z-index: 10;
+    .header {
+      font-size: 36px;
+    }
+    .subheader {
+      font-size: 24px;
+      opacity: 0;
+      display: inline-block;
+      overflow: visible;
+      width: 0;
+      height: 0;
+    }
+    .subheader-expanded {
+      font-size: 24px;
+      line-height: 30px;
+      opacity: 1;
+      max-height: 60px;
+    }
+    .description {
+      font-size: 20px;
+      line-height: 28px;
+      max-height: 200px;
+      white-space: normal;
+      overflow-y: hidden;
+      margin-top: 16px;
+      overflow-y: hidden;
+    }
+  }
+}
+
+ct-dialog {
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: visible;
+  .dialog-overlay {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    transition: all .3s;
+    &.ng-enter,
+    &.ng-leave.ng-leave-active {
+      opacity: 0;
+    }
+    &.ng-leave,
+    &.ng-enter.ng-enter-active {
+      opacity: 1;
+    }
+  }
+  .dialog-box {
+    z-index: 101;
+    width: 100%;
+    position: fixed;
+    top: 50vh;
+    max-height: 80vh;
+    box-shadow: $shadow-big;
+    overflow: auto;
+    background: white;
+    border-top: 8px solid $accent;
+    border-bottom: 8px solid $accent;
+    transition: top .3s, opacity .3s;
+    &.ng-enter-active {
+      transition: top .3s ease-out, opacity .3s;
+    }
+    &.ng-leave-active {
+      transition: top .3s ease-in, opacity .3s;
+    }
+    &.ng-enter,
+    &.ng-leave.ng-leave-active {
+      opacity: 0;
+    }
+    &.ng-leave,
+    &.ng-enter.ng-enter-active {
+      opacity: 1;
+    }
+    &.ng-enter {
+      top: 150vh;
+    }
+    &.ng-leave-active {
+      top: 150vh;
+    }
+    .dialog-content-wrapper {
+      padding: 32px;
+    }
+    .dialog-content {
+      min-height: 100%;
+    }
+  }
+  .dialog-button-holder {
+    text-align: right;
+    margin: 16px;
+    .md-button {
+      margin: 0;
+    }
+    .md-button+* {
+      margin-left: 8px;
+    }
+  }
+  &.no-padding {
+    .dialog-content-wrapper {
+      padding: 0;
+    }
+    .dialog-button-holder {
+      margin: 16px;
+    }
+  }
+}
+
+.ct-ico {
+  height: 32px;
+  width: 32px;
+}
+
+.footer-push {
+  height: 8px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 8px;
+  left: 0;
+  right: 0;
+  background: $accent;
+  box-shadow: $shadow;
+}
+
+@media (max-width: 575px) {
+  .search,
+  .results {
+    border-radius: 0;
+  }
+  .results {
+    margin-top: 32px;
+  }
+  main {
+    padding-bottom: 32px;
+  }
+}
+
+md-input-container.md-default-theme .md-input-messages-animation,
+md-input-container .md-input-messages-animation,
+md-input-container.md-default-theme .md-input-message-animation,
+md-input-container .md-input-message-animation {
+  color: $accent;
+}
+
+md-input-container.md-default-theme.md-input-invalid label,
+md-input-container.md-input-invalid label,
+md-input-container.md-default-theme.md-input-invalid .md-input-message-animation,
+md-input-container.md-input-invalid .md-input-message-animation,
+md-input-container.md-default-theme.md-input-invalid .md-char-counter,
+md-input-container.md-input-invalid .md-char-counter {
+  color: $accent;
+}
+
+md-input-container.md-default-theme.md-input-invalid .md-input,
+md-input-container.md-input-invalid .md-input {
+  border-color: $accent;
+}
+
+md-input-container label:not(.md-container-ignore).md-required:after {
+  content: none;
+}
+
+md-input-container.md-default-theme label.md-required:after,
+md-input-container label.md-required:after {
+  color: $accent;
+}

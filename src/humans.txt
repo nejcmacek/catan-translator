@@ -1,0 +1,13 @@
+Author:
+	Name: Nejc Maček
+	Email: macek.nejc@gmail.com
+
+Icons from icons8.com:
+	Website: https://icons8.com
+
+Icons from flaticon.com by Madebyoliver:
+	Author: Madebyoliver
+	Author website: http://www.flaticon.com/authors/madebyoliver
+	Provider's website: http://www.flaticon.com
+
+Thanks to everyone that contributed to development of any dependency.

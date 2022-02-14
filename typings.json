@@ -1,0 +1,22 @@
+{
+  "globalDevDependencies": {
+    "gulp": "registry:dt/gulp#3.8.0+20160907112908",
+    "gulp-babel": "registry:dt/gulp-babel#6.1.0+20160316171810",
+    "gulp-concat": "registry:dt/gulp-concat#0.0.0+20160316155526",
+    "gulp-inject": "registry:dt/gulp-inject#0.0.0+20160316155526",
+    "gulp-rename": "registry:dt/gulp-rename#0.0.0+20160817204333",
+    "gulp-sass": "registry:dt/gulp-sass#0.0.0+20160316155526",
+    "gulp-sourcemaps": "registry:dt/gulp-sourcemaps#0.0.0+20160316155526",
+    "gulp-typescript": "registry:dt/gulp-typescript#0.0.0+20160317120654",
+    "rimraf": "registry:dt/rimraf#0.0.0+20160317120654",
+    "typescript": "registry:dt/typescript#0.4.0+20160317120654",
+    "xlsx": "registry:dt/xlsx#0.0.0+20160811195152"
+  },
+  "globalDependencies": {
+    "angular": "registry:dt/angular#1.5.0+20161016133926",
+    "angular-animate": "registry:dt/angular-animate#1.5.0+20160709061515",
+    "angular-material": "registry:dt/angular-material#1.1.0-rc5.0+20161019085523",
+    "jquery": "registry:dt/jquery#1.10.0+20160929162922",
+    "node": "registry:env/node#6.0.0+20161019193037"
+  }
+}

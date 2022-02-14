@@ -1,0 +1,15 @@
+<form class="form" name="searchForm" layout-gt-sm="row" layout="column">
+	<md-input-container class="md-block" style="margin: 0;" flex>
+		<label>Query</label>
+		<input ng-model="query" ng-required="category == allCategory" name="query" ng-trim ng-change="queryChanged()">
+		<!--<div ng-messages="searchForm.query.$error">
+				<div ng-message="required">This is required.</div>
+			</div>-->
+	</md-input-container>
+	<md-input-container style="width: 100%; margin: 0;" flex>
+		<md-select ng-model="category" name="category" ng-change="categoryChanged()">
+			<md-option value="{{allCategory}}">All</md-option>
+			<md-option ng-repeat="category in getCategories()" value="{{category}}">{{getCategoryName(category)}}</md-option>
+		</md-select>
+	</md-input-container>
+</form>

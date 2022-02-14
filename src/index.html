@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Settlers of Catan - Translations</title>
+	<script src="lib.bundle.js"></script>
+	<script src="app.bundle.js"></script>
+	<link rel="stylesheet" href="lib.bundle.css">
+	<link rel="stylesheet" href="app.bundle.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="author" content="Nejc Maček <nejc.macek@gmail.com>">
+	<meta name="description" content="Application for browsing English translations of Slovenian content of board game Settlers of Catan.">
+	<meta name="keywords" content="settlers of catan, translation, english, slovene, slovenian, app, nejc, maček">
+	<link rel="author" href="humans.txt">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" href="assets/favicon/favicon-768.png" sizes="768x768">
+	<link rel="shortcut icon" href="assets/favicon/favicon-256.png" sizes="256x256">
+</head>
+
+<body ng-app="ct" ng-controller="MainCtrl">
+	<header>
+		<div class="container">
+			<span class="link" ng-click="home()">Catan Translator</span>
+			<md-button ng-click="costsClicked()">Prices</md-button>
+		</div>
+	</header>
+	<main>
+		<div ng-if="dp.loading" class="container message">
+			Loading...
+		</div>
+		<div ng-if="dp.error" class="container message">
+			An unknown error has occurred.
+			<md-button class="md-raised" ng-click="dp.fetch()">Retry</md-button>
+		</div>
+		<div ng-if="!dp.loading && !dp.error && dp.items">
+			<div class="search container">
+				<ct-search></ct-search>
+			</div>
+			<div class="message container" ng-if="rp.isEmpty() && rp.isInitialized()">
+				No matches.
+			</div>
+			<div class="message container" ng-if="!rp.isEmpty() && rp.queryTooLong">
+				The query is too long.
+			</div>
+			<div class="results container" ng-if="!rp.isEmpty() && !rp.queryTooLong">
+				<ct-result-item ng-repeat="result in rp.results" item="result"></ct-result-item>
+			</div>
+		</div>
+	</main>
+	<div class="footer-push"></div>
+	<footer></footer>
+
+	<ct-dialog class="no-padding" visible="costs">
+		<ct-costs class="costs"></ct-costs>
+	</ct-dialog>
+
+</body>
+
+</html>

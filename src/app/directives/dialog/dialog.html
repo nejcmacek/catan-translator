@@ -1,0 +1,11 @@
+<div class="dialog-overlay" ng-if="visible" ng-click="close()"></div>
+<div class="dialog-box" ng-if="visible">
+	<div class="dialog-content-wrapper">
+		<div class="dialog-content">
+			<ng-transclude></ng-transclude>
+			<div class="dialog-button-holder">
+				<md-button ng-click="close()" class="md-raised">Close</md-button>
+			</div>
+		</div>
+	</div>
+</div>
